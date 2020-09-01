@@ -74,7 +74,6 @@ class Player:
     def make_move_cards_stand_alone(self, submitted_card_set: object, table: object):
         '''Cards submitted with this method must stand alone, meaning that they cannot be added to 
         existing groups on the table.'''
-        # TODO: assign WC attrs if WC
         player_has_cards = self.cards.contains(submitted_card_set)
         if player_has_cards:
             submitted_card_set.assign_wc_attrs_to_cardset()
@@ -128,4 +127,3 @@ if __name__ == '__main__':
     ui = UserInput()
     cards2submit = ui.get_player_cards(p1)
     p1.make_move_cards_stand_alone(cards2submit, table)
-
