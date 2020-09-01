@@ -1,8 +1,6 @@
 from typing import List
 from card import Card
 from cardset import CardSet
-# TODO: Include a 'break' option for the user, so that they can change their mind 
-# if they want and go back to 'menu' of options
 
 _rank_to_int_dict = {
         '2': 2,

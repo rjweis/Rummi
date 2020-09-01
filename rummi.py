@@ -8,10 +8,8 @@ from typing import List, Tuple
 import userinput
 from userinput import UserInput
 import logo
-# TODO: need to handle moves when 2 wildcards are being
 # TODO: add the player method .swap_card() to the game
-# TODO: Move is invalid if player empties their hand -- they must have at least one card remaining
-# TODO: after switching attrs of wildcards, the wildcard isn't being removed from the hand
+# TODO: make move invalid if player empties their hand -- they must have at least one card remaining
 
 ui = UserInput()
 class Rummi:
