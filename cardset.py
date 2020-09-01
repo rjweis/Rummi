@@ -1,9 +1,5 @@
 from typing import List
 from card import Card
-# TODO: how to handle [H2, D2, C5, C6]?
-# TODO: How to sort cards when there is a wildcard present? Multiple wildcards?
-# TODO: Solution will be much easier if player is required to input the 'hidden' attrs
-# of a replacement card
 
 class CardSet:
     '''A card set is a list of card objects. The class is used for
@@ -23,7 +19,7 @@ class CardSet:
     def cards_are_consecutive(self) -> bool:
         '''Returns True if each card.hidden_int_value is adjacent to one another.'''
         bools = (self.cards[idx].adjacent(self.cards[idx+1]) for idx, card in enumerate(self.cards) 
-                        if card != self.cards[-1]) # if statement for avoiding index out of range error
+                    if card != self.cards[-1]) # if statement for avoiding index out of range error
         cards_are_consecutive = all(bools) 
         return(cards_are_consecutive)
 
@@ -53,8 +49,8 @@ class CardSet:
     def __init__(self, cards: List[object]):
         '''cards: list of card objects'''
         if not isinstance(cards, list):
-            cards = [cards] # ensures that single card instances 
-                            # can be considered as card set instances
+            cards = [cards] 
+                        
         if cards:
             self.cards = cards
             self.card_ids = self.get_card_ids()
@@ -67,7 +63,6 @@ class CardSet:
     def __eq__(self, other_set):
         if isinstance(other_set, CardSet):
             return(self.cards == other_set.cards)
-            # reminder: cards are considered equal if their hidden attrs are equal
 
     def __len__(self):
         return(len(self.cards))
