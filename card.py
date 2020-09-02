@@ -1,7 +1,7 @@
 from typing import List
 
 def check_str(user_input: str, acceptable_values: List[str]) -> str:
-    '''Helper function for ensuring that user_input is a str listed 
+    """Helper function for ensuring that user_input is a str listed 
     in acceptable_values. If not, use loop to keep requesting user_input 
     until it is a str listed in acceptable_values.
     
@@ -11,7 +11,7 @@ def check_str(user_input: str, acceptable_values: List[str]) -> str:
 
     Returns:
         user_input: Str that is in accetable_values.
-    '''
+    """
     if user_input not in acceptable_values:
         while True:
             user_input = input('{} is not valid input. Enter one of {}:\n'.format(user_input, acceptable_values))
@@ -21,7 +21,7 @@ def check_str(user_input: str, acceptable_values: List[str]) -> str:
         return(user_input)
 
 class Card:
-    '''Object that is used to form the CardSet, Deck, and DiscardPile classes.'''
+    """Object that is used to form the CardSet, Deck, and DiscardPile classes."""
 
     # dictionaries for mapping ranks and ints, where ints represent the numeric
     # value assigned to a rank. E.g., a rank of '3' corresponds to an int of 3, 
@@ -76,7 +76,7 @@ class Card:
     }
 
     def __init__(self, suit_rank: str):
-        '''
+        """
         Args:
             suit_rank: 0th character represents the suit, the remaining characters
             represent the rank.
@@ -107,7 +107,7 @@ class Card:
             ['H3', 'D2', 'H5'] are played, then the corresponding hidden attrs for 'D2'
             are 'H' and '4', respectively. If another player has the actual card H4, they may 
             steal this card from the table by swapping the actual card with the wildcard.
-        '''
+        """
         self.suit = suit_rank[0].upper()
         self.rank = suit_rank[1:].upper()
         self.id = self.suit + self.rank
@@ -120,13 +120,13 @@ class Card:
         self.hidden_suit = self.suit 
 
     def __eq__(self, comparison_card: object) -> bool:
-        '''Wildcards are considered equal when both ranks and suits are equal.
+        """Wildcards are considered equal when both ranks and suits are equal.
         All other cards are considered euqal when both their hidden ranks and suits
         are equal.
         
         Args:
             comparison_card: The object that the self object is being compared to. 
-        '''
+        """
         if isinstance(comparison_card, Card):
             if self.is_wildcard and comparison_card.is_wildcard:
                 same_rank = (self.rank == comparison_card.rank)
@@ -146,27 +146,27 @@ class Card:
         return(1)
 
     def same_suit(self, comparison_card: object) -> bool:
-        '''Determines if the card (self) has the same suit as the
+        """Determines if the card (self) has the same suit as the
         comparison card.
 
         Args:
             comparison_card: The object the self object is being compared to.
-        '''
+        """
         are_suits_same = (self.hidden_suit == comparison_card.hidden_suit)
         return(are_suits_same)
 
     def same_rank(self, comparison_card: object) -> bool:
-        '''Determines if the card (self) has the same rank as the
+        """Determines if the card (self) has the same rank as the
          comparison card.
         
         Args:
             comparison_card: The object the self object is being compared to.
-        '''
+        """
         are_ranks_same = (self.hidden_rank == comparison_card.hidden_rank)
         return(are_ranks_same)
     
     def adjacent(self, comparison_card: object) -> bool:
-        '''Determines if the card rank (self) is adjacent to the 
+        """Determines if the card rank (self) is adjacent to the 
         rank of the comparison card. Cards are considered adjacent when
         1) the absolute value of the difference between the hidden_int_value 
         is equal to 1; OR 2) the self object and the comparison_card have ranks
@@ -174,7 +174,7 @@ class Card:
         
         Args:
             comparison_card: The object the self object is being compared to.
-        '''
+        """
         # rank '2' and rank 'A' must be considered adjacent
         if self.hidden_rank == '2' and comparison_card.hidden_rank == 'A':
             return(True)
@@ -188,20 +188,20 @@ class Card:
             return(False)
 
     def isin(self, card_set: object) -> bool:
-        '''Returns True if card is contained in the card_set.
+        """Returns True if card is contained in the card_set.
         
         Args:
             card_set: Object that contains a list of card objects.
-        '''
+        """
         cards = card_set.cards
         isincards = any(self == card for card in cards)
         return(isincards)
 
     def assign_wildcard_attrs(self):
-        '''Method is called for each wilcard that is submitted to the table. 
+        """Method is called for each wilcard that is submitted to the table. 
         If the user chooses to modify the card, then they may input the suit
         and rank to assign to the wildcard's hidden attrs.
-        '''
+        """
         yes_no_input = input('Do you want to assign an alternative suit and/or rank '
                             'to {}? Enter yes/no:\n'.format(self))
         yes_no = check_str(yes_no_input, ['yes', 'no'])
@@ -220,10 +220,10 @@ class Card:
             self.hidden_int_value = int_value
 
     def reset_wildcard_attrs(self):
-        '''Called when a player assigns hidden attrs to a wildcard
+        """Called when a player assigns hidden attrs to a wildcard
         that lead to an invalid move. For example, H2 takes on its 
         original suit ('H') and rank ('2').
-        '''
+        """
         self.hidden_suit = self.suit
         self.hidden_rank = self.rank
         self.hidden_int_value = self.int_value
