@@ -15,3 +15,8 @@ My girlfriend and I play this game often with friends, and I always lose and she
 * Naming variables, functions, and classes effectively is important but difficult
 * Organizing functions and classes into different modules can speed up debugging
 * Using OBStudio for display capture, then converting to GIF with [convertio.co](https://convertio.co/)
+
+## Future Work
+* Add 'AI' to play against
+* Use probability to optimize decision making at each turn (i.e., should a card be drawn from the deck? the discard pile? the whole discard pile?)
+* Add GUI with Pygame
