@@ -13,7 +13,7 @@ My girlfriend and I play this game often with friends, and I always lose and she
 * Using the debugger in VSCode
 * Appreciating 'flat is better than nested'
 * Naming variables, functions, and classes effectively is important but difficult
-* Organizing functions and classes into different modules can speed up debugging
+* Refactoring code can speed up debugging and improve readability
 * Using OBStudio for display capture, then converting to GIF with [convertio.co](https://convertio.co/)
 
 ## Future Work
