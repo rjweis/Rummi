@@ -25,7 +25,8 @@ class Table:
         '''Add cards to table as an individual set'''
         if isinstance(card_set, CardSet):
             self.cards.append(card_set)
-            # TODO: Organize the table
+            # TODO: concatenate adjacent card sets 
+            # (e.g., [h3, h4, h5] and [h6, h7, h8] should be one set)
 
     def contains(self, card_set: object): 
         return(any([parent_set == card_set for parent_set in self.cards]))
