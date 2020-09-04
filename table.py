@@ -2,7 +2,7 @@ from typing import List
 from cardset import CardSet
 
 class Table:
-    '''List of CardSet objects'''
+    '''List of CardSet objects. Players submit their cards to the table.'''
     def __init__(self, card_sets: List[object] = None):
         if card_sets:
             self.cards = card_sets
@@ -22,16 +22,19 @@ class Table:
         return(self.cards == other_table.cards)
 
     def add_cards(self, card_set: object):
-        '''Add cards to table as an individual set'''
+        '''Add cards to the tabletable as an individual set.'''
         if isinstance(card_set, CardSet):
             self.cards.append(card_set)
             # TODO: concatenate adjacent card sets 
             # (e.g., [h3, h4, h5] and [h6, h7, h8] should be one set)
 
     def contains(self, card_set: object): 
+        '''"in" method. Returns true if the card_set is in 
+        the self (parent).'''
         return(any([parent_set == card_set for parent_set in self.cards]))
 
     def add_cards_to_target_cards(self, added_set: object, target_set: object):
+        '''Add the cards from added_set to the target_set.'''
         for idx, parent_set in enumerate(self.cards):
             if parent_set == target_set: 
                 parent_set.extend(added_set)
