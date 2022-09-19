@@ -4,7 +4,7 @@ Simple CLI implementation of the card game [Rummy](https://en.wikipedia.org/wiki
 ![Rummi Demo](https://github.com/rjweis/Rummi/blob/master/rummi_demo.gif)
 
 ## Motivation
-My girlfriend and I play this game often with friends, and I always lose and she always wins. So, developing this game was a way to train so I can one day beat her. :)
+ I play this game often with friends, and I always lose. So, developing this game was a way to train so I can one day win. :)
 
 ## Skills and Concepts Learned
 * Classes and OOP 
